@@ -16,7 +16,7 @@ function App() {
                       <div className="Spacing">单文件最大100M</div>
                       <div className="Spacing">单项目最大1G</div>
                       <div className="Spacing">社区与邮件支持</div>
-                      <div className="Col1_dis">color:white_字体白色占了一行空格</div>
+                      <div className="Col1_dis">color:white_白色的字体占了一行空格</div>
                       <div className="btn">免费试用</div>
                   </div>
               </div>
