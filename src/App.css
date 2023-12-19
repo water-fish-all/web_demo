@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+  border:3px solid #94c1c2;
+}
+#App1 {
+  border:3px solid red;
+}
+#main {
+  border:3px solid black;
+  height:600px;
+  margin-left:100px;
+  margin-right:100px;
+  margin-top:100px;
+  display:flex;
+  /*padding: 60px;*/
+}
+#Col1 {
+  border:3px solid yellow;
+  height:599px;
+  flex:1 1 33%;
+  text-align:center;
+}
+#Col2 {
+  border:3px solid brown;
+  height:599px;
+  flex:1 1 33%;
+  background-color: #ca4b3c;
+  background-image:url("./today02.png");
+  background-repeat: no-repeat;
+  background-position-x: 40%;
+  text-align:center;
+}
+#Col3 {
+  border: 3px solid purple;
+  height:599px;
+  flex:1 1 33%;
+  text-align:center;
+}
+.Col1_title{
+  font-size:20px;
+  font-weight:bolder;
+  margin-top:100px;
+  margin-bottom:30px;
+}
+.Col1_Span1{
+  color: black;
+  font-size:20px;
+  font-weight:bolder;
+  /*padding-top: 5px;*/
+}
+.Col1_Span2{
+  color: red;
+  font-size:25px;
+  font-weight:bolder;
+  margin:3px;
+}
+.Col1_Span3{
+  margin: 30px;
+}
+
+.btn{
+  border: 3px solid #dbdbdb;
+  width: 100px;
+  height: 20px;
+  margin: 0 auto;
+  font-size:15px;
+  font-weight: bolder;
+  border-radius: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.btn:hover{
+  background: #ddd;
+  color: #f00;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
