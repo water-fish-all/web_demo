@@ -6,7 +6,7 @@
   border:3px solid red;
 }
 #main {
-  border:3px solid black;
+  border:1px solid black;
   height:800px;
   margin-left:50px;
   margin-right:50px;
@@ -15,13 +15,13 @@
   /*padding: 60px;*/
 }
 #Col1 {
-  border:3px solid yellow;
+  border:1px solid yellow;
   height:800px;
   flex:1 1 33%;
   text-align:center;
 }
 #Col2 {
-  border:3px solid blue;
+  border:1px solid blue;
   height:800px;
   flex:1 1 33%;
   background-color: #ca4b3c;
@@ -32,7 +32,7 @@
   color: white;
 }
 #Col3 {
-  border: 3px solid yellow;
+  border: 1px solid yellow;
   height:800px;
   flex:1 1 33%;
   text-align:center;
