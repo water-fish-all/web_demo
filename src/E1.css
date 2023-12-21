@@ -8,7 +8,7 @@
 }
 
 
-.col_row1{
+#col_row1{
     border: 2px solid white;
     width:100%;
     height: 100px;
@@ -36,5 +36,15 @@
     font-size: 50px;
     font-weight: bolder;
     background-color: orange;
+    color: white;
+}
+.col_row4{
+    border: 2px solid white;
+    width:100%;
+    height: 100px;
+    margin: 0 auto;
+    font-size: 50px;
+    font-weight: bolder;
+    background-color: #858482;
     color: white;
 }

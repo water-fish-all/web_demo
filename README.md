@@ -1,3 +1,5 @@
+# ！底部有说明 ！
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +70,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+代码均使用了react框架，运行时需要在控制台面板上输入npm start或者cnpm start，
+
+代码工程中如果没有node modules无法运行，需要先安装键入命令npm install或者cnpm install
+
+实验一：功能为广告设计图，代码为App.css与App.js
+
+实验二：功能为网页计算器的实现，代码为E1.css与E1.js

@@ -80,7 +80,7 @@
   font-weight: bolder;
   border-radius: 25px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   color:#755b5c;
 }
 .btn:hover{
@@ -96,7 +96,7 @@
   font-weight: bolder;
   border-radius: 25px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   background-color:#fec731;
 }
 .btn2:hover{
