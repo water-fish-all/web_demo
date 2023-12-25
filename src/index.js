@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Example1 from "./E1";
+import Example2 from "./E2"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Example1 />
+    <Example2 />
   </React.StrictMode>,
   document.getElementById('root')
 );
