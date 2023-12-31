@@ -80,3 +80,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 实验一：功能为广告设计图，代码为App.css与App.js
 
 实验二：功能为网页计算器的实现，代码为E1.css与E1.js
+
+实验三：功能为机场信息基础功能，点击点图层弹出抽屉，代码为E2.js
+
+实验三新增功能：新增5个组件，比例尺，实时经纬度，缩放尺，地图主题，全屏，新增修改点图层为图片标注图层，新增输入框搜索弹出机场信息框，新增模糊搜索输入框，新增机场客流量top30排行条形图。
