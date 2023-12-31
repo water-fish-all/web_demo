@@ -4,14 +4,22 @@ import './index.css';
 import App from './App';
 import Example1 from "./E1";
 import Example2 from "./E2"
+import Example3 from "./E3"
+import Test1 from "./test"
+import Searcher from "./Searcher"
+import SearchApp from "./SearchApp";
 import reportWebVitals from './reportWebVitals';
+import BarChartExample from "./BarChartExample";
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Example2 />
+    <Test1 />
   </React.StrictMode>,
   document.getElementById('root')
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

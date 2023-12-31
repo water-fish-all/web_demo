@@ -1,7 +1,7 @@
 import react from "react";
 import "./E2.css"
 import {GaodeMap, getData} from '@antv/l7';
-import { LarkMap, PointLayer} from '@antv/larkmap';
+import { LarkMap, PointLayer, MapThemeControl} from '@antv/larkmap';
 import {Drawer, Descriptions, List, Row} from 'antd';
 
 class Example2 extends react.PureComponent{
@@ -105,7 +105,9 @@ class Example2 extends react.PureComponent{
                     id="container"
                     map={this.mapInstance}
                     style={{height:"800px"}}
+                    mapType="Gaode"
                 >
+                    <MapThemeControl />
                     <PointLayer {...this.options} source={pointSource} onClick={this.handleClick}/>
                 </LarkMap>
 
