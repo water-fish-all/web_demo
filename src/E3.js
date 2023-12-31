@@ -9,6 +9,7 @@ import { IconImageLayer } from '@antv/larkmap';
 import { CustomControl, LocationSearch } from '@antv/larkmap';
 import "./Searcher"
 import { Input } from 'antd';
+import { Bar } from '@antv/g2plot';
 
 const { Search } = Input;
 const onChange = e => {
@@ -24,6 +25,7 @@ class Example3 extends react.PureComponent{
             CurrentData:"",
             SearchData:"",
             Modalvisible: false,
+            barChartVisible: false, // 新增状态用于控制条形图的显示/隐藏
         }
     }
 
@@ -162,7 +164,34 @@ class Example3 extends react.PureComponent{
             top30.push(this.state.pointData[i]);
         }
         console.log(top30)
+        alert("客流量降序排序已完成")
     }
+    // 添加一个新的方法用于关闭条形图
+    closeBarChart = () => {
+        // 销毁条形图
+        this.barChart.destroy();
+
+        // 设置条形图显示状态为 false
+        this.setState({ barChartVisible: false });
+    };
+
+    // 添加一个新的方法用于绘制条形图
+    renderBarChart = () => {
+        const { pointData } = this.state;
+
+        // 创建条形图实例并存储在类的属性中
+        this.barChart = new Bar('container', {
+            data: pointData.slice(0, 30), // 使用前30条数据
+            xField: 'flightNumber',
+            yField: 'aptCname',
+        });
+
+        this.barChart.render();
+
+        // 设置条形图显示状态为 true
+        this.setState({ barChartVisible: true });
+    };
+
     render() {
         let pointSource={
             data: this.state.pointData,
@@ -184,13 +213,6 @@ class Example3 extends react.PureComponent{
         return (
             <div>
 
-                <Search addonBefore={"请在右侧输入框内输入内容以检索信息"}
-                        addonAfter={"在左侧框内输入内容弹出信息展示窗口(输入框为空或不存在输入内容的数据等其他情况时默认展示上海虹桥机场)"}
-                        placeholder="在此处输入：城市名称/IATACode/机场名称    例如：上海/SHA/上海虹桥"
-                        allowClear onChange={onChange}
-                        onSearch={value => this.searchClick(value) }
-                        style={{ width: 1710 }}
-                />
                 <LarkMap
                     id="container"
                     map={this.mapInstance}
@@ -222,8 +244,28 @@ class Example3 extends react.PureComponent{
                     <MouseLocationControl/>
                     <MapThemeControl/>
 
-                    <Button className="locale-components" onClick={this.flightNumberSort}>客流量top30机场排行</Button>
-
+                    <div>
+                        <Button className="locale-components" onClick={this.flightNumberSort}>
+                            客流量降序排序
+                        </Button>
+                        <Button className="locale-components" onClick={this.renderBarChart}>
+                            客流量top30机场排行
+                        </Button>
+                        {/* 添加关闭条形图的按钮 */}
+                        {this.state.barChartVisible && (
+                            <Button className="locale-components" onClick={this.closeBarChart}>
+                                关闭条形图
+                            </Button>
+                        )}
+                    </div>
+                    <Search
+                        addonBefore={"机场信息检索"}
+                        // addonAfter={"在左侧框内输入内容弹出信息展示窗口(输入框为空或不存在输入内容的数据等其他情况时默认展示上海虹桥机场)"}
+                        placeholder="在此处输入：城市名称/IATACode/机场名称    例如：上海/SHA/上海虹桥"
+                        allowClear onChange={onChange}
+                        onSearch={value => this.searchClick(value)}
+                        style={{width: 500}}
+                    />
                 </LarkMap>
 
                 <Drawer
@@ -234,10 +276,14 @@ class Example3 extends react.PureComponent{
                 >
                     <Descriptions
                         title="当前所在机场基本信息">
-                        <Descriptions.Item label="机场名称" span={4}>{this.state.CurrentData.aptCname}机场</Descriptions.Item>
-                        <Descriptions.Item label="所在城市" span={4}>{this.state.CurrentData.aptCcity}</Descriptions.Item>
-                        <Descriptions.Item label="国际航空机场代码" span={4}>{this.state.CurrentData.IATACode}</Descriptions.Item>
-                        <Descriptions.Item label="当日航班数量" span={4}>{this.state.CurrentData.flightNumber}</Descriptions.Item>
+                        <Descriptions.Item label="机场名称"
+                                           span={4}>{this.state.CurrentData.aptCname}机场</Descriptions.Item>
+                        <Descriptions.Item label="所在城市"
+                                           span={4}>{this.state.CurrentData.aptCcity}</Descriptions.Item>
+                        <Descriptions.Item label="国际航空机场代码"
+                                           span={4}>{this.state.CurrentData.IATACode}</Descriptions.Item>
+                        <Descriptions.Item label="当日航班数量"
+                                           span={4}>{this.state.CurrentData.flightNumber}</Descriptions.Item>
                         <Descriptions.Item label="经度" span={4}>{this.state.CurrentData.longitude}°</Descriptions.Item>
                         <Descriptions.Item label="纬度" span={4}>{this.state.CurrentData.latitude}°</Descriptions.Item>
                     </Descriptions>
