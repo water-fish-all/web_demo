@@ -1,7 +1,8 @@
 import react from "react";
 import {GaodeMap, getData} from '@antv/l7';
-import { LarkMap, PointLayer, MapThemeControl, ZoomControl} from '@antv/larkmap';
-import { ScaleControl ,FullscreenControl ,MouseLocationControl } from '@antv/larkmap';
+import { LarkMap, PointLayer} from '@antv/larkmap';
+import { ZoomControl ,ScaleControl ,FullscreenControl } from '@antv/larkmap';
+import { MouseLocationControl ,MapThemeControl } from '@antv/larkmap';
 import {Drawer, Descriptions, List, Row, Progress, Skeleton, Modal, ConfigProvider, Button} from 'antd';
 import a1 from './airport.svg'
 import a2 from './gps.svg'
@@ -10,11 +11,15 @@ import { CustomControl, LocationSearch } from '@antv/larkmap';
 import "./Searcher"
 import { Input } from 'antd';
 import { Bar } from '@antv/g2plot';
+import { Scene } from '@antv/l7';
+import { LocationSearchOption } from '@antv/larkmap';
+import { message } from 'antd';
+
 
 const { Search } = Input;
-const onChange = e => {
-    console.log(e);
-};
+// const onChange = e => {
+//     console.log(e);
+// };
 class Example3 extends react.PureComponent{
 
     constructor() {
@@ -26,6 +31,7 @@ class Example3 extends react.PureComponent{
             SearchData:"",
             Modalvisible: false,
             barChartVisible: false, // 新增状态用于控制条形图的显示/隐藏
+            scence:"",
         }
     }
 
@@ -37,7 +43,7 @@ class Example3 extends react.PureComponent{
                 console.log(data);
                 console.log(data.data.data);
                 this.setState({pointData:data.data.data})
-
+                console.log(this.state.pointData)
             });
 
         console.log("excute componentDidMount");
@@ -55,7 +61,6 @@ class Example3 extends react.PureComponent{
         iconAtlas: {
             icon1: a1,
             icon2: a2,
-            icon3: 'https://gw.alipayobjects.com/zos/basement_prod/7aa1f460-9f9f-499f-afdf-13424aa26bbf.svg',
         },
         icon: 'icon1',
         blend: 'normal',
@@ -106,15 +111,22 @@ class Example3 extends react.PureComponent{
     buttonClick=()=>{
         console.log(this.state.pointData[0].IATACode)
     }
-    onChange=()=>{
-        console.log(this.state.pointData)
+    onChange=(e)=>{
+        this.setState({
+            Modalvisible: false,
+        });
+        console.log(e)
     }
-    onSearchFinish=()=>{
-        console.log(this.state.pointData)
+    onSearchFinish=(e)=>{
+        // this.state.scence.setZoomAndCenter(15,[104.288144, 31.239692]);
+        console.log(e)
+        // console.log(e.location)
+
+        // console.log(this.state.pointData)
     }
     searchClick=(value)=>{
         console.log(value)
-        console.log(this.state.pointData[0])
+        // console.log(this.state.pointData[0])
         let i=0;
         let aa=0;
         let c=0;
@@ -133,6 +145,10 @@ class Example3 extends react.PureComponent{
             Modalvisible: true,
             SearchData:bb
         });
+        console.log(this.state.pointData[c])
+        let location1 = this.state.pointData[c].longitude
+        let location2 = this.state.pointData[c].latitude
+        this.state.scence.setZoomAndCenter(10,[location1, location2]);
     }
     handleOk = e => {
         console.log(e);
@@ -215,11 +231,11 @@ class Example3 extends react.PureComponent{
 
                 <LarkMap
                     id="container"
-                    map={this.mapInstance}
+                    map={this.mapInstance}    
                     style={{height: "800px"}}
                     mapType="Gaode"
                     onSceneLoaded={(newScene) => {
-                        this.setState(newScene);
+                        this.setState({scence:newScene});
                     }}
                 >
                     {/*<PointLayer {...this.options} source={pointSource} onClick={this.handleClick}/>*/}
@@ -229,6 +245,8 @@ class Example3 extends react.PureComponent{
                         <LocationSearch
                             searchParams={{
                                 key: '70214c980e09ac04c41f39a36dcd5a81',
+                                //  Web服务 70214c980e09ac04c41f39a36dcd5a81
+                                //	Web端 6a63d711b3ed4a18b484280b996c6d19
                                 // location,
                             }}
                             autoFocus
@@ -262,7 +280,7 @@ class Example3 extends react.PureComponent{
                         addonBefore={"机场信息检索"}
                         // addonAfter={"在左侧框内输入内容弹出信息展示窗口(输入框为空或不存在输入内容的数据等其他情况时默认展示上海虹桥机场)"}
                         placeholder="在此处输入：城市名称/IATACode/机场名称    例如：上海/SHA/上海虹桥"
-                        allowClear onChange={onChange}
+                        allowClear onChange={this.onChange}
                         onSearch={value => this.searchClick(value)}
                         style={{width: 500}}
                     />

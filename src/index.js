@@ -15,7 +15,7 @@ import BarChartExample from "./BarChartExample";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Test1 />
+    <Example3 />
   </React.StrictMode>,
   document.getElementById('root')
 );
