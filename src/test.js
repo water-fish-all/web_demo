@@ -38,6 +38,24 @@ class Test1 extends react.PureComponent{
                 console.log(data.data.data);
                 this.setState({pointData:data.data.data})
 
+                //客流量降序排序
+                let i,j,temp;
+                let top30 = [];
+                for(i=1;i<this.state.pointData.length;i++){
+                    for(j=0;j<(this.state.pointData.length)-i;j++){
+                        if (this.state.pointData[j].flightNumber < this.state.pointData[j+1].flightNumber)//相邻两个数如果逆序，则交换位置
+                        {
+                            temp = this.state.pointData[j];
+                            this.state.pointData[j] = this.state.pointData[j+1];
+                            this.state.pointData[j+1] = temp;
+                        }
+                    }
+                }
+                for(i=0;i<30;i++){
+                    top30.push(this.state.pointData[i]);
+                }
+                console.log(top30)
+                
             });
 
         console.log("excute componentDidMount");
@@ -245,9 +263,9 @@ class Test1 extends react.PureComponent{
                     <MapThemeControl/>
 
                     <div>
-                        <Button className="locale-components" onClick={this.flightNumberSort}>
+                        {/* <Button className="locale-components" onClick={this.flightNumberSort}>
                             客流量降序排序
-                        </Button>
+                        </Button> */}
                         <Button className="locale-components" onClick={this.renderBarChart}>
                             客流量top30机场排行
                         </Button>
