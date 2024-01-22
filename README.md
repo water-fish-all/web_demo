@@ -1,86 +1,59 @@
-# ！底部有说明 ！
+# 以下内容为说明文档
 
-# Getting Started with Create React App
+代码主要包括三个内容，广告页面设计，计算器，机场航班信息展示地图。
+以及对第三个部分新增的一些功能。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## App.js
+代码简要说明
+### `广告页面设计`
+分为三个页面简单页面，主要是学会HTML的简单运用以及使用CSS简单美化页面，
+三个页面分别为：免费版，标准版，高级版。
 
-## Available Scripts
+## E1.js
+代码简要说明
+### `网页版简单计算器`
+简单实现计算器的加减乘除功能，计算历史记录，未实现小数运算，未实现消除全部数据按钮，每次点击"＝"符号运算后需刷新页面。
 
-In the project directory, you can run:
+## E2.js
+代码简要说明
+### `机场航班信息展示地图基础功能`
+调用高德地图作为地图底图，实现地图的渲染。
+用fetch中所提供的机场数据，设置点图层，设置点击事件触发，弹出侧边抽屉展示机场信息。
 
-### `yarn start`
+## E3.js
+代码简要说明
+### `机场航班信息展示地图新增功能`
+1.新增5个小组件，比例尺，实时经纬度，缩放尺，地图主题，全屏。
+2.新增修改点图层为图片标注图层。
+3.新增机场信息检索功能，在输入框搜索后，弹出机场信息框，支持输入"城市名称/IATACode/机场名称"进行搜索，
+无内容搜索或其他异常搜索均默认展示成都双流机场信息。
+4.新增模糊搜索输入框，新增机场客流量top30排行条形图。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## test.js
+代码简要说明
+### `class Test1 用于代码修改测试`
+将已经写好，但想要修改的代码粘贴在test.js中修改进行测试。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## index.js
+如果有新的js代码要运行，
+需参照以下格式在index.js中导入。
+import XX(XX为类名) from "./XX(XX为类名)";
 
-### `yarn test`
+然后再用想要运行的js文件中的XX类名替换下面的Example3。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  `  <React.StrictMode>
+    <Example3 />
+  </React.StrictMode>`
 
-### `yarn build`
+## package.json
+由于使用了Antd以及antv的组件，需要在其中添加依赖
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  "dependencies": {
+    在这里添加依赖
+  }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-
+### `补充说明`
+第一次使用需要npm install或者cnpm install安装node_modules。
 代码均使用了react框架，运行时需要在控制台面板上输入npm start或者cnpm start，
-
-代码工程中如果没有node modules无法运行，需要先安装键入命令npm install或者cnpm install
-
-实验一：功能为广告设计图，代码为App.css与App.js
-
-实验二：功能为网页计算器的实现，代码为E1.css与E1.js
-
-实验三：功能为机场信息基础功能，点击点图层弹出抽屉，代码为E2.js
-
-实验三新增功能：新增5个组件，比例尺，实时经纬度，缩放尺，地图主题，全屏，新增修改点图层为图片标注图层，新增输入框搜索弹出机场信息框，新增模糊搜索输入框，新增机场客流量top30排行条形图。
+如果无法使用可能是新添加了依赖，npm install或者cnpm install更新安装node_modules。
+代码工程中如果没有node modules无法运行，需要先安装键入命令npm install或者cnpm install。
