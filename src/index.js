@@ -10,6 +10,7 @@ import Searcher from "./Searcher"
 import SearchApp from "./SearchApp";
 import reportWebVitals from './reportWebVitals';
 import BarChartExample from "./BarChartExample";
+import Work from "./Work"
 
 
 

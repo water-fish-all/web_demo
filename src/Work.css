@@ -1,0 +1,21 @@
+#C1 {
+    border:20px solid black;
+    height:100px;
+    margin-left:200px;
+    margin-right:200px;
+    margin-top:50px;
+    display:flex;
+    background-color: yellow;
+    font-size: xx-large;
+}
+.C2 {
+    border:20px solid purple;
+    height:100px;
+    flex:1 1 33%;
+    text-align:center;
+    color: red;
+    background-color: blue;
+    margin-left:400px;
+    margin-right:400px;
+    font-size: xx-large;
+}

@@ -26,6 +26,7 @@ class Example3 extends react.PureComponent{
             SearchData:"",
             Modalvisible: false,
             barChartVisible: false, // 新增状态用于控制条形图的显示/隐藏
+            scence:"",
         }
     }
 
@@ -151,6 +152,10 @@ class Example3 extends react.PureComponent{
             Modalvisible: true,
             SearchData:bb
         });
+        console.log(this.state.pointData[c])
+        let location1 = this.state.pointData[c].longitude
+        let location2 = this.state.pointData[c].latitude
+        this.state.scence.setZoomAndCenter(10,[location1, location2]);
     }
     handleOk = e => {
         console.log(e);
@@ -237,6 +242,7 @@ class Example3 extends react.PureComponent{
                     style={{height: "800px"}}
                     mapType="Gaode"
                     onSceneLoaded={(newScene) => {
+                        this.setState({scence:newScene});
                         this.setState(newScene);
                     }}
                 >
@@ -282,7 +288,7 @@ class Example3 extends react.PureComponent{
                         placeholder="在此处输入：城市名称/IATACode/机场名称    例如：上海/SHA/上海虹桥"
                         allowClear onChange={onChange}
                         onSearch={value => this.searchClick(value)}
-                        style={{width: 500}}
+                        style={{width: 610}}
                     />
                 </LarkMap>
 
@@ -310,7 +316,7 @@ class Example3 extends react.PureComponent{
                 {/*    Open Modal*/}
                 {/*</Button>*/}
                 <Modal
-                    title={"搜索信息汇总(默认为上海虹桥机场数据)"}
+                    title={"搜索信息汇总(默认为成都双流机场数据)"}
                     visible={this.state.Modalvisible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}

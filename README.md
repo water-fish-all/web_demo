@@ -52,8 +52,16 @@ import XX(XX为类名) from "./XX(XX为类名)";
     在这里添加依赖
   }
 
-### `补充说明`
+### `react使用说明`
 第一次使用需要npm install或者cnpm install安装node_modules。
-代码均使用了react框架，运行时需要在控制台面板上输入npm start或者cnpm start，
+代码均使用了react框架。
+
+运行程序，在终端Terminal键入：
+npm start/cnpm start，依据自己安装的包。
+
+退出程序，在终端Terminal键入：
+ctrl+C，会弹出 终止批处理操作吗（Y/N）？输入Y/y
+
+补充说明：
 如果无法使用可能是新添加了依赖，npm install或者cnpm install更新安装node_modules。
 代码工程中如果没有node modules无法运行，需要先安装键入命令npm install或者cnpm install。
