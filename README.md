@@ -65,3 +65,4 @@ ctrl+C，会弹出 终止批处理操作吗（Y/N）？输入Y/y
 补充说明：
 如果无法使用可能是新添加了依赖，npm install或者cnpm install更新安装node_modules。
 代码工程中如果没有node modules无法运行，需要先安装键入命令npm install或者cnpm install。
+提交至github
